@@ -1,14 +1,23 @@
 """
 Written by Matteo Dunnhofer - 2017
 
-definition of AlexNet architecture
+Definition of AlexNet architecture
 """
 
 import tensorflow as tf
 import train_util as tu
 
-# alexnet CNN (feature extractor) implementation
 def cnn(x):
+	"""
+	AlexNet convolutional layers definition
+
+	Args:
+		x: tensor of shape [batch_size, width, height, channels]
+
+	Returns:
+		pool5: tensor with all convolutions, pooling and lrn operations applied
+
+	"""
 	with tf.name_scope('alexnet_cnn') as scope:
 		with tf.name_scope('alexnet_cnn_conv1') as inner_scope:
 			wcnn1 = tu.weight([11, 11, 3, 96], name='wcnn1')
@@ -52,8 +61,20 @@ def cnn(x):
 
 		return pool5
 
-# alexnet fully connected layers
 def classifier(x, dropout):
+	"""
+	AlexNet fully connected layers definition
+
+	Args:
+		x: tensor of shape [batch_size, width, height, channels]
+		dropout: probability of non dropping out units
+
+	Returns:
+		fc3: 1000 linear tensor taken just before applying the softmax operation
+			it is needed to feed it to tf.softmax_cross_entropy_with_logits()
+		softmax: 1000 linear tensor representing the output probabilities of the image to classify
+
+	"""
 	pool5 = cnn(x)
 
 	dim = pool5.get_shape().as_list()
