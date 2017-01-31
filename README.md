@@ -2,22 +2,6 @@
 
 As part of a university project I implemented AlexNet model and its training and testing procedures on the ILSVRC 2012 dataset, all using TensorFlow. 
 
-```train.py``` and ```test.py``` scripts assume that ImageNet dataset folder is structured in this way:
-```
-ILSVRC2012
-    ILSVRC2012_img_train
-        n01440764
-        n01443537
-        n01484850
-        ...
-    ILSVRC2012_img_val
-        ILSVRC2012_val_00000001.JPEG
-        ILSVRC2012_val_00000002.JPEG
-        ...
-    data
-        meta.mat
-        ILSVRC2012_validation_ground_truth.txt
-```
 
 
 ### Training
@@ -62,6 +46,27 @@ castle - score: 0.0284509658813
 monastery - score: 0.0265731271356
 ```
 Again, you can change the number of random crops produced and the *Top-k* prediction retrieved (here are both `5`).
+
+
+
+### Notes
+```train.py``` and ```test.py``` scripts assume that ImageNet dataset folder is structured in this way:
+```
+ILSVRC2012
+    ILSVRC2012_img_train
+        n01440764
+        n01443537
+        n01484850
+        ...
+    ILSVRC2012_img_val
+        ILSVRC2012_val_00000001.JPEG
+        ILSVRC2012_val_00000002.JPEG
+        ...
+    data
+        meta.mat
+        ILSVRC2012_validation_ground_truth.txt
+```
+
 
 
 #### References
