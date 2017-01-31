@@ -160,7 +160,11 @@ if __name__ == '__main__':
 	EPOCHS = 90
 	BATCH_SIZE = 128
 	CKPT_PATH = 'ckpt-alexnet'
+	if not os.path.exists(CKPT_PATH):
+		os.makedirs(CKPT_PATH)
 	SUMMARY = 'summary'
+	if not os.path.exists(SUMMARY):
+		os.makedirs(SUMMARY)
 
 	IMAGENET_PATH = 'ILSVRC2012'
 	DISPLAY_STEP = 10
