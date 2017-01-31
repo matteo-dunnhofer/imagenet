@@ -1,15 +1,8 @@
 # AlexNet training on ImageNet LSVRC 2012
 
-This repo offers the implementation of AlexNet model and its training and testing procedures on the ILSVRC 2012 dataset.
+As part of a university project I implemented AlexNet model and its training and testing procedures on the ILSVRC 2012 dataset, all using TensorFlow. 
 
-### Training
-To train AlexNet just run the command:
-```shell
-python train.py option
-``` 
-with options ```-scratch``` to train the model from scratch or ```-resume``` to resume the training from a checkpoint.
-
-The script assumes that ImageNet dataset folder is structured in this way:
+```train.py``` and ```test.py``` scripts assume that ImageNet dataset folder is structured in this way:
 ```
 ILSVRC2012
     ILSVRC2012_img_train
@@ -26,6 +19,18 @@ ILSVRC2012
         ILSVRC2012_validation_ground_truth.txt
 ```
 
+
+### Training
+To train AlexNet just run the command:
+```shell
+python train.py option
+``` 
+with options ```-scratch``` to train the model from scratch or ```-resume``` to resume the training from a checkpoint.
+
+I trained AlexNet with the hyperparameters set in the script for ~46000 steps (roughly 46 epochs), decreasing the learning rate two times (by a factor of 10) when the loss became stagnant. The training image were preprocessed subtracting the training-set mean for each channel. No data-augmentation was performed (future improvement). The training was carried on a NVIDIA Tesla K40c and took (thanks to [Avires Lab](https://https://avires.dimi.uniud.it)) a few days.
+
+
+
 ### Testing
 To evaluate the accuracy of the trained model I used the ILSVRC validation set (no test set is available). Run simply:
 ```shell
@@ -33,6 +38,8 @@ python train.py
 ```
 This evaluates *Top-1* and *Top-k* (you can set *k* inside the script) accuracy and error-rate.
 Inside the script you can also play with the ```K_CROPS``` parameter to see how the accuracy change when the predictions are averaged through different random crops of the images.
+
+
 
 ### Classify an image
 To predict the classes of an input image run:
