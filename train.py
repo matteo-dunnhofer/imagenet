@@ -60,10 +60,10 @@ def train(
 
 	# cross-entropy and weight decay
 	with tf.name_scope('cross_entropy'):
-		cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(pred, y_b, name='cross-entropy'))
+		cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=pred, labels=y_b, name='cross-entropy'))
 	
 	with tf.name_scope('l2_loss'):
-		l2_loss = tf.reduce_sum(lmbda * tf.pack([tf.nn.l2_loss(v) for v in tf.get_collection('weights')]))
+		l2_loss = tf.reduce_sum(lmbda * tf.stack([tf.nn.l2_loss(v) for v in tf.get_collection('weights')]))
 		tf.summary.scalar('l2_loss', l2_loss)
 	
 	with tf.name_scope('loss'):

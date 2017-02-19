@@ -46,7 +46,7 @@ def test(
 	top1_correct = tf.equal(tf.argmax(avg_prediction, 0), tf.argmax(y, 1))
 	top1_accuracy = tf.reduce_mean(tf.cast(top1_correct, tf.float32))
 
-	topk_correct = tf.nn.in_top_k(tf.pack([avg_prediction]), tf.argmax(y, 1), k=top_k)
+	topk_correct = tf.nn.in_top_k(tf.stack([avg_prediction]), tf.argmax(y, 1), k=top_k)
 	topk_accuracy = tf.reduce_mean(tf.cast(topk_correct, tf.float32))
 
 	saver = tf.train.Saver()
