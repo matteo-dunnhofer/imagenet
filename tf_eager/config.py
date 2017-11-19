@@ -13,10 +13,10 @@ class Configuration(object):
 		- dataset path
 		...
 	"""
-	DATA_PATH = 'tiny-imagenet-200' #'ILSVRC2012'
+	DATA_PATH = 'ILSVRC2012'
 	IMAGENET_MEAN = [123.68, 116.779, 103.939]
 	IMG_SHAPE = [224, 224, 3] # height, width, channels
-	NUM_CLASSES = 200
+	NUM_CLASSES = 1000
 
 	# training hyperparameters
 	LEARNING_RATE = 1e-4
@@ -24,8 +24,8 @@ class Configuration(object):
 	BATCH_SIZE = 128
 	EPOCHS = 90
 	DISPLAY_STEP = 10
-	VALIDATION_STEP = 100
-	SAVE_STEP = 100
+	VALIDATION_STEP = 1000
+	SAVE_STEP = 1000
 	CKPT_PATH = 'ckpt'
 	SUMMARY_PATH = 'summary'
 
