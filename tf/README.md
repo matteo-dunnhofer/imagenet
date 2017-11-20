@@ -1,8 +1,6 @@
-# AlexNet training on ImageNet LSVRC 2012
+## "Classic TensorFlow" code
 
-As part of a university project I implemented AlexNet model and its training and testing procedures on the ILSVRC 2012 dataset, all using TensorFlow. 
-
-
+This folder contains the script to train and test Alexnet on ImageNet. This code was developed using the classic TensorFlow framework, so defining a computational graph and then executing it in a ```tf.Session```.
 
 ### Training
 To train AlexNet just run the command:
@@ -66,9 +64,3 @@ ILSVRC2012
         meta.mat
         ILSVRC2012_validation_ground_truth.txt
 ```
-
-
-
-#### References
-+ *Alex Krizhevsky, Ilya Sutskever and Geoffrey E. Hinton.* ImageNet Classification with Deep Convolutional Neural Networks. Advances in Neural Inforamtion Processing Systems 25, 2012.
-+ *Olga Russakovsky°, Jia Deng°, Hao Su, Jonathan Krause, Sanjeev Satheesh, Sean Ma, Zhiheng Huang, Andrej Karpathy, Aditya Khosla, Michael Bernstein, Alexander C. Berg and Li Fei-Fei.* (° = equal contribution) ImageNet Large Scale Visual Recognition Challenge. IJCV, 2015
