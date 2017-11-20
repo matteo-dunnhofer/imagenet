@@ -16,7 +16,7 @@ I trained AlexNet with the hyperparameters set in the script for ~46000 steps (r
 ### Testing
 To evaluate the accuracy of the trained model I used the ILSVRC validation set (no test set is available). Run simply:
 ```shell
-python train.py
+python test.py
 ```
 This evaluates *Top-1* and *Top-k* (you can set *k* inside the script) accuracy and error-rate.
 Inside the script you can also play with the ```K_CROPS``` parameter to see how the accuracy change when the predictions are averaged through different random crops of the images.
