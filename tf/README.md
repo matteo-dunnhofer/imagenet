@@ -21,7 +21,7 @@ python test.py
 This evaluates *Top-1* and *Top-k* (you can set *k* inside the script) accuracy and error-rate.
 Inside the script you can also play with the ```K_CROPS``` parameter to see how the accuracy change when the predictions are averaged through different random crops of the images.
 
-I tested the trained model on the ILSVRC validation set consisting of 50000 images. I obtained a *Top-1* accuracy of **57.31%** and a *Top-5* accuracy of **80.31%**, averaging the predictions on 5 random crops. With more epochs and some tweaks they can be improved of a few more points. I hope to do so in the next weeks.
+I tested the trained model on the ILSVRC validation set consisting of 50000 images. I obtained a *Top-1* accuracy of **57.31%** and a *Top-5* accuracy of **80.31%**, averaging the predictions on 5 random crops. With more epochs and some tweaks they can be improved of a few more points.
 
 
 
