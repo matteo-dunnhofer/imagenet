@@ -145,7 +145,7 @@ def train(
 					print('Variables saved in file: %s' % save_path)
 
 		end_time = time.time()
-		print ('Elapsed time: {}').format(tu.format_time(end_time - start_time))
+		print ('Elapsed time: {}'.format(tu.format_time(end_time - start_time)))
 		save_path = saver.save(sess, os.path.join(ckpt_path, 'alexnet-cnn.ckpt'))
 		print('Variables saved in file: %s' % save_path)
 
