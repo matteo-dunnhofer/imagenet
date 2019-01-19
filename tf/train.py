@@ -120,8 +120,8 @@ def train(
 		for e in range(sess.run(epoch), epochs):
 			for i in range(num_batches):
 
-				_, step = sess.run([optimizer, global_step], feed_dict={lr: learning_rate, keep_prob: dropout})
-				#train_writer.add_summary(summary, step)
+				summary_str,_, step = sess.run([merged,optimizer, global_step], feed_dict={lr: learning_rate, keep_prob: dropout})
+				train_writer.add_summary(summary_str, step)
 
 				# decaying learning rate
 				if step == 170000 or step == 350000:
